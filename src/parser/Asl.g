@@ -167,7 +167,7 @@ funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
 expr_list:  expr (','! expr)*
         ;
 
-arrayacc : ID b='['expr']' -> ^(ARRAYACC[$b, "[]"] ID expr)
+arrayacc : ID b='[' expr ']' -> ^(ARRAYACC[$b, "[]"] ID expr)
          ;
          
 arraysiz : ID '.'! SIZE^
