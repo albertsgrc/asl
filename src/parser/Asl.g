@@ -167,7 +167,7 @@ funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
 expr_list:  expr (','! expr)*
         ;
 
-arrayacc : ID b=SQBRL expr SQBRR -> ^(ARRAYACC[$b, "[]"] ID expr)
+arrayacc : ID b='['expr']' -> ^(ARRAYACC[$b, "[]"] ID expr)
          ;
          
 arraysiz : ID '.'! SIZE^
@@ -202,8 +202,6 @@ READ    : 'read' ;
 WRITE   : 'write' ;
 TRUE    : 'true' ;
 FALSE   : 'false';
-SQBRL   : '[';
-SQBRR   : ']';
 SIZE    : 'size';
 ID      :   ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT     :   '0'..'9'+ ;
